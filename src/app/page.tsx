@@ -12,20 +12,26 @@ export default function Home() {
 
   return (
     <div>
-      <div className="mb-10 max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-wider text-accent">Demo</p>
-        <h1 className="mt-1 text-3xl font-semibold text-slate-900">Claim document upload &amp; assessor review</h1>
-        <p className="mt-3 text-slate-600">
-          An end-to-end insurance workflow: a policyholder uploads supporting evidence against an open claim, the
-          document is validated and routed to a prioritised assessor queue, the assessor reviews it inline and records
-          a decision, and the policyholder is notified — with every step captured in an immutable audit trail.
-        </p>
+      <div className="relative mb-10 overflow-hidden rounded-md bg-qbe-navy px-8 py-12 text-white">
+        <div className="absolute inset-y-0 left-0 w-2 bg-qbe-orange" />
+        <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-qbe-blue/40" />
+        <div className="relative max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#5FB9EF]">Claims · Demo</p>
+          <h1 className="mt-2 text-4xl font-medium leading-tight tracking-tight !text-white">
+            Claim document upload &amp; assessor review
+          </h1>
+          <p className="mt-4 text-white/85">
+            An end-to-end insurance workflow: a policyholder uploads supporting evidence against an open claim, the
+            document is validated and routed to a prioritised assessor queue, the assessor reviews it inline and records
+            a decision, and the policyholder is notified — with every step captured in an immutable audit trail.
+          </p>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <Card className="p-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-sky-100 p-2 text-sky-700">
+            <div className="rounded-lg bg-qbe-blue/10 p-2 text-qbe-blue">
               <FileUp className="h-6 w-6" />
             </div>
             <h2 className="text-lg font-semibold">Policyholder</h2>
@@ -37,7 +43,7 @@ export default function Home() {
           <Link
             href="/claims"
             onClick={() => setRole("policyholder")}
-            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline"
+            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-qbe-blue hover:underline"
           >
             Go to my claims <ArrowRight className="h-4 w-4" />
           </Link>
@@ -45,7 +51,7 @@ export default function Home() {
 
         <Card className="p-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-amber-100 p-2 text-amber-700">
+            <div className="rounded-lg bg-qbe-orange/15 p-2 text-qbe-orange">
               <ClipboardList className="h-6 w-6" />
             </div>
             <h2 className="text-lg font-semibold">Claims assessor</h2>
@@ -58,7 +64,7 @@ export default function Home() {
           <Link
             href="/queue"
             onClick={() => setRole("assessor")}
-            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline"
+            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-qbe-blue hover:underline"
           >
             Open work queue <ArrowRight className="h-4 w-4" />
           </Link>

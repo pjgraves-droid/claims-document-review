@@ -83,7 +83,7 @@ export default function AuditPage() {
                     </td>
                     <td className="px-3 py-2.5">
                       {claim ? (
-                        <Link href={`/queue/${claim.id}`} className="text-brand hover:underline">
+                        <Link href={`/queue/${claim.id}`} className="text-qbe-blue hover:underline">
                           {claim.reference}
                         </Link>
                       ) : (

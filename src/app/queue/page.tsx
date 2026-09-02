@@ -45,7 +45,7 @@ export default function QueuePage() {
                       </div>
                     </td>
                     <td className="px-3 py-3">
-                      <Link href={`/queue/${claim.id}`} className="font-medium text-brand hover:underline">
+                      <Link href={`/queue/${claim.id}`} className="font-medium text-qbe-blue hover:underline">
                         {claim.reference}
                       </Link>
                       <div className="text-xs text-slate-500">{claim.product}</div>

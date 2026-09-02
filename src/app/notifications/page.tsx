@@ -53,7 +53,7 @@ export default function NotificationsPage() {
                       </p>
                     )}
                     {claim && (
-                      <Link href={`/claims/${claim.id}`} className="mt-2 inline-block text-sm font-medium text-brand hover:underline">
+                      <Link href={`/claims/${claim.id}`} className="mt-2 inline-block text-sm font-medium text-qbe-blue hover:underline">
                         Open {claim.reference}
                       </Link>
                     )}

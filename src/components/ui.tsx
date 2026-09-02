@@ -88,7 +88,7 @@ export function SlaBadge({ due }: { due?: string }) {
 }
 
 export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <div className={clsx("rounded-lg border border-slate-200 bg-white shadow-sm", className)}>{children}</div>;
+  return <div className={clsx("rounded-md border border-qbe-grey-200 border-t-4 border-t-qbe-blue bg-white shadow-sm", className)}>{children}</div>;
 }
 
 export function Button({
@@ -98,15 +98,15 @@ export function Button({
   ...rest
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "secondary" | "danger" | "ghost" }) {
   const styles = {
-    primary: "bg-brand text-white hover:bg-brand-light disabled:bg-slate-300",
-    secondary: "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 disabled:text-slate-400",
-    danger: "bg-red-600 text-white hover:bg-red-700 disabled:bg-slate-300",
-    ghost: "text-slate-600 hover:bg-slate-100",
+    primary: "bg-qbe-blue text-white hover:bg-qbe-blue-dark disabled:bg-qbe-grey-400",
+    secondary: "border-2 border-qbe-blue bg-white text-qbe-blue hover:bg-qbe-grey-50 disabled:border-qbe-grey-200 disabled:text-qbe-grey-400",
+    danger: "bg-red-600 text-white hover:bg-red-700 disabled:bg-qbe-grey-400",
+    ghost: "text-qbe-blue hover:bg-qbe-grey-100",
   };
   return (
     <button
       className={clsx(
-        "inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed",
+        "inline-flex items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed",
         styles[variant],
         className,
       )}
@@ -121,8 +121,8 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
   return (
     <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
       <div>
-        <h1 className="text-2xl font-semibold text-slate-900">{title}</h1>
-        {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
+        <h1 className="text-3xl font-medium tracking-tight text-qbe-ink">{title}</h1>
+        {subtitle && <p className="mt-1 text-sm text-qbe-body/80">{subtitle}</p>}
       </div>
       {action}
     </div>

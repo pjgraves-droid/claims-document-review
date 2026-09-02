@@ -4,4 +4,5 @@
 
 :root { color-scheme: light; }
 html, body { height: 100%; }
-body { @apply bg-slate-50 text-slate-800 antialiased; }
+body { @apply bg-qbe-grey-50 text-qbe-body antialiased; }
+h1, h2, h3 { @apply text-qbe-ink; }
