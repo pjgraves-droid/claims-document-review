@@ -3,8 +3,12 @@ import type { AppState, AuditEvent, Claim, ClaimDocument } from "./types";
 const hoursAgo = (h: number) => new Date(Date.now() - h * 3600 * 1000).toISOString();
 const daysAgo = (d: number) => hoursAgo(d * 24);
 
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+
 export function svgPreview(title: string, lines: string[], accent = "#1e3a5f"): string {
   const body = lines
+    .map(esc)
     .map(
       (l, i) =>
         `<text x="40" y="${140 + i * 30}" font-family="Helvetica, Arial" font-size="16" fill="#334155">${l}</text>`,
@@ -13,7 +17,7 @@ export function svgPreview(title: string, lines: string[], accent = "#1e3a5f"): 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="620" height="420" viewBox="0 0 620 420">
   <rect width="620" height="420" fill="#ffffff" stroke="#cbd5e1"/>
   <rect width="620" height="80" fill="${accent}"/>
-  <text x="40" y="50" font-family="Helvetica, Arial" font-size="24" font-weight="bold" fill="#ffffff">${title}</text>
+  <text x="40" y="50" font-family="Helvetica, Arial" font-size="24" font-weight="bold" fill="#ffffff">${esc(title)}</text>
   ${body}
   <text x="40" y="390" font-family="Helvetica, Arial" font-size="12" fill="#94a3b8">Demo document — generated for illustration</text>
 </svg>`;

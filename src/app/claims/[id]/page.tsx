@@ -55,7 +55,7 @@ export default function ClaimDetailPage() {
           <Card>
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
               <h2 className="font-semibold">Documents</h2>
-              <span className="text-xs text-slate-500">{visible.length} active</span>
+              <span className="text-xs text-slate-500">{visible.filter((d) => d.status !== "Failed").length} attached</span>
             </div>
             {visible.length === 0 ? (
               <div className="p-5">

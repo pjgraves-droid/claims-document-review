@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowLeft, History } from "lucide-react";
@@ -32,8 +32,12 @@ export default function ReviewPage() {
 
   const selected = docs.find((d) => d.id === selectedId) ?? pending[0] ?? docs.find((d) => d.status !== "Superseded") ?? null;
 
+  const lastViewedId = useRef<string | null>(null);
   useEffect(() => {
-    if (selected) viewDocument(selected.id);
+    if (selected && lastViewedId.current !== selected.id) {
+      lastViewedId.current = selected.id;
+      viewDocument(selected.id);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected?.id]);
 
